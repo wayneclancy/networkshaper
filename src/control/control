@@ -4,6 +4,6 @@ Description: Emulate slow / poor  networks on a router
 Section: net
 Priority: optional
 Maintainer: Wayne Clancy 
-Architecture:y all
+Architecture: all
 Homepage: https://github.com/wayneclancy/networkshaper
 Depends: tc, kmod-netem, uhttpd
