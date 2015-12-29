@@ -25,6 +25,8 @@ elif [ "$delay" = "700.0ms" ]; then
   echo "56"
 elif [ "$delay" = "1.5s" ]; then
   echo "ppp_oss"
+elif [ "$delay" = "500.0ms" ]; then
+  echo "vsat"
 else
   echo "none"
 fi
