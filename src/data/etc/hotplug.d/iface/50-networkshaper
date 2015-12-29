@@ -1,0 +1,12 @@
+#!/bin/sh
+
+
+if [ "$DEVICE" = "br-TestLan" ]; then
+  if [ "$ACTION" = "ifup" ]; then
+    logger -t "networkshaper" "starting up htb queue"
+    tc qdisc add dev br-TestLan root handle 1: htb default 265
+  elif [ "$ACTION" = "ifdown" ]; then
+    logger -t "networkshaper" "br-TestLan down, all tc rules removed"
+    tc qdisc del dev br-TestLan root
+  fi
+fi

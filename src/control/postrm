@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rmdir /usr/lib/networkshaper/api
+rmdir /usr/lib/networkshaper

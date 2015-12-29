@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>BGCH - Choose your traffic profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 400px) {
+  .container { width: 85%; padding: 0; }
+}
+
+@media (min-width: 550px) {
+  .container { width: 80%; }
+}
+
+html { font-size: 62.5%; }
+body {
+  font-size: 1.5em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; margin-top: 0; margin-bottom: 2rem; font-weight: 600; text-align: center; letter-spacing: .1rem; color: #555;}
+
+@media (min-width: 550px) {
+  h4 { font-size: 3.0rem; }
+}
+
+footer, p { margin-top: 0; text-align: center; color: #888; text-transform: uppercase; letter-spacing: .1rem; font-size: 11px; margin-bottom: 3rem; font-weight: 400;}
+
+footer { width: 100%; margin-bottom: 1rem; }
+
+footer a { text-decoration: none; }
+
+.button,
+button {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  width:100%;
+  box-sizing: border-box;
+}
+
+div#loading-message {
+  position: fixed;
+  top: 2em;
+  text-align: center;
+  z-index: 1000;
+  padding: 8px 15px;
+  display: none;
+  text-shadow: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #f9edbe;
+  border: 1px solid #f0c36d;
+  border-radius: 2px;
+  color: #333;
+  background-color: #D9EDF7;
+  border: 1px solid #BCE8F1;
+  color: #3A87AD;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
+  opacity: 0.8;
+}
+
+
+div#loading-message.show {
+	display:block;
+}
+
+button.selected-setting { border-color: #6D9AF0; border-width: 2px; color: #6D9AF0; }
+
+.container:after, .row:after, .u-cf { content: ""; display: table; clear: both; }
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h4> Please select a network profile </h4>
+		<div id="loading-message"> Changing the settings... </div>
+    <button class="connection-settings" id="none"> No Profile </button>
+		<p>(Normal connection with no trafic shaping)</p>
+		<button class="connection-settings" id="3g"> 3G </button>
+		<p>(780kbps bandwidth, 0% packets dropped, 100ms delay) </p>
+		<button class="connection-settings" id="dsl">2MB DSL</button>
+		<p>(2mbps bandwidth, 0% packets dropped, 5ms delay)</p>
+		<button class="connection-settings" id="edge"> Edge (2G) </button>
+		<p>(240kbps bandwidth, 0% packets dropped, 440ms delay)</p>
+		<button class="connection-settings" id="bad"> Bad Network</button>
+		<p>(1mbps bandwidth, 10% packets dropped, 200ms delay)</p>
+		<button class="connection-settings" id="very_bad"> Very Bad Network</button>
+		<p>(500kbps bandwidth, 30% packets dropped, 600ms delay)</p>
+	</div>
+
+	<script>
+		function getRequester() {
+			var httpRequest;
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+				httpRequest = new XMLHttpRequest();
+			} else if (window.ActiveXObject) { // IE
+				try {
+					httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch (e) {
+					try {
+						httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					catch (e) {}
+				}
+			}
+
+			return httpRequest;
+		}
+
+		window.onload = function() {
+			var httpRequest = getRequester();
+			httpRequest.onreadystatechange = function() {
+				if (httpRequest.readyState === 4) {
+					if (httpRequest.status === 200) {
+						var current_profile = httpRequest.responseText.trim();
+						var current_profile_button = document.getElementById(current_profile);
+						current_profile_button.classList.add("selected-setting");
+					} else {
+						alert("Failed to get current profile.");
+					}
+				}
+			};
+			httpRequest.open('GET', "/api/current_profile");
+			httpRequest.timeout = 10000;
+			httpRequest.send();
+
+			var buttons = document.getElementsByClassName("connection-settings");
+			var loading_message = document.getElementById('loading-message');
+			for (var i = 0; i < buttons.length; i++) {
+				buttons[i].addEventListener("click", function(event){
+					var button = event.target;
+					var httpRequest = getRequester();
+					httpRequest.onreadystatechange = function() {
+						if (httpRequest.readyState === 4) {
+							if (httpRequest.status === 200) {
+								for (var j = 0; j < buttons.length; j++) {
+									buttons[j].classList.remove("selected-setting")
+								}
+								button.classList.add("selected-setting");
+							} else {
+								alert("Failed for some reason. Try clicking again maybe?");
+							}
+							loading_message.classList.remove("show");
+						}
+					};
+					httpRequest.timeout = 10000;
+					httpRequest.open('POST', "/api/" + button.id);
+					httpRequest.send();
+					loading_message.classList.add("show");
+				});
+			}
+		}
+	</script>
+</body>
+</html>

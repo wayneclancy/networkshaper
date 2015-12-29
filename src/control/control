@@ -1,0 +1,9 @@
+Package: networkshaper 
+Version: 0.0.1
+Description: Emulate slow / poor  networks on a router
+Section: net
+Priority: optional
+Maintainer: Wayne Clancy 
+Architecture:y all
+Homepage: https://github.com/wayneclancy/networkshaper
+Depends: tc, kmod-netem, uhttpd

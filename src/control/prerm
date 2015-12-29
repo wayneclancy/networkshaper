@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DEVICE=br-TestLan ACTION=ifdown /etc/hotplug.d/iface/50-networkshaper
+/etc/init.d/networkshaper disable
+/etc/init.d/networkshaper stop
