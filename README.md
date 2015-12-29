@@ -13,9 +13,11 @@ type 'make' in the root directory. This will create a .ipk file in ./build that 
 
 Installing
 ----------
-run 'opkg install https://github.com/wayneclancy/networkshaper/blob/master/dist/networkshaper-f9164c3.ipk'
+run 
+```opkg install https://raw.githubusercontent.com/wayneclancy/networkshaper/master/dist/networkshaper-f9164c3.ipk```
 
-Alternativly copy ipk over to the the router via your prefered method and run opkg install /$PATH_TO_IPK
+Alternativly copy ipk over to the the router via your prefered method and run 
+```opkg install /$PATH_TO_IPK```
 
 Assumptions
 -----------
