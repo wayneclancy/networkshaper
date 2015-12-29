@@ -1,0 +1,9 @@
+#!/bin/sh
+
+source $(dirname $0)/_common
+
+stop_if_not_post
+
+/usr/lib/networkshaper/slow -b 128kbps -l 1500ms -p 60% 2>&1 >/dev/null
+
+render_ok

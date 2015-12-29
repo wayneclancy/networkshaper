@@ -4,7 +4,6 @@ source $(dirname $0)/_common
 
 stop_if_not_post
 
-reset_profile $REMOTE_CLIENT_ID
-set_profile $REMOTE_CLIENT_ID 500kbit 600ms 30%
+/usr/lib/networkshaper/slow -b 500kbps -l 600ms -p 30% 2>&1 >/dev/null
 
 render_ok

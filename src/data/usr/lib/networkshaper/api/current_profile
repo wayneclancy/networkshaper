@@ -4,7 +4,7 @@ source $(dirname $0)/_common
 
 stop_if_not_get
 
-delay=$(tc qdisc ls dev br-lan | grep 7866 | cut -d " " -f 9)
+delay=$(tc qdisc ls dev eth0 | grep -v default |cut -d " " -f 9)
 
 echo "Content-Type: text/plain"
 echo
@@ -19,6 +19,12 @@ elif [ "$delay" = "5.0ms" ]; then
   echo "dsl"
 elif [ "$delay" = "200.0ms" ]; then
   echo "bad"
+elif [ "$delay" = "900.0ms" ]; then
+  echo "14.4"
+elif [ "$delay" = "700.0ms" ]; then
+  echo "56"
+elif [ "$delay" = "1.5s" ]; then
+  echo "ppp_oss"
 else
   echo "none"
 fi
