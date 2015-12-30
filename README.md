@@ -22,6 +22,7 @@ Alternativly copy ipk over to the the router via your prefered method and run
 Assumptions
 -----------
 This only works if eth0 (WAN) port is being nated to LAN and Wifi interfaces.
+Lan interface is call 'br-lan'
 
 Notes
 ------
