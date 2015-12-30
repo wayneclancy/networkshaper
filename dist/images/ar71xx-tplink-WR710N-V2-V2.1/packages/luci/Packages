@@ -43,11 +43,11 @@ Depends: libc, liblua
 Source: feeds/luci/libs/luci-lib-nixio
 Section: luci
 Architecture: ar71xx
-Installed-Size: 27958
+Installed-Size: 27959
 Filename: luci-lib-nixio_git-15.352.62701-b7fe44a-1_ar71xx.ipk
-Size: 28490
-MD5Sum: 4526ea86c43ae7fc4537df9b06abe02d
-SHA256sum: df681fb5b1982621c633944bd65a4d1ee790dee4506c6a1af0c0bf67a1acf975
+Size: 28486
+MD5Sum: 89c5c581eb0b90a004103e95f1303618
+SHA256sum: 9c3c197bd1ba5251bb8cb1b1b5d5e870f13d32a60c49a3d8d6e4a34de3a4a4fe
 Description:  NIXIO POSIX library
 
 Package: luci-mod-admin-full
