@@ -30,11 +30,11 @@ Depends: libc, liblua, libnl-tiny
 Source: feeds/luci/libs/luci-lib-ip
 Section: luci
 Architecture: ar71xx
-Installed-Size: 8905
+Installed-Size: 8904
 Filename: luci-lib-ip_git-15.352.62701-b7fe44a-1_ar71xx.ipk
-Size: 9615
-MD5Sum: b28e56d1fbbea8e24081d76176fa8e44
-SHA256sum: 8f5abd0757019e2182ea83192f69a7d710d056641f58ce6a0e3e802b6925d767
+Size: 9626
+MD5Sum: 5c3ee8a6d347b180d5cb619760b2f640
+SHA256sum: 1605806129d17cae6e55839311cd2857b9f9d49b503505f5417429687c260955
 Description:  Lua library for IP calculation and routing information
 
 Package: luci-lib-nixio
@@ -43,11 +43,11 @@ Depends: libc, liblua
 Source: feeds/luci/libs/luci-lib-nixio
 Section: luci
 Architecture: ar71xx
-Installed-Size: 27960
+Installed-Size: 27958
 Filename: luci-lib-nixio_git-15.352.62701-b7fe44a-1_ar71xx.ipk
-Size: 28485
-MD5Sum: 3330a8c30071f9d2202486a96ab947e6
-SHA256sum: 133cdf89aeefa9c663eb6b93c0144e6ede7ca82e1c536d9f8cd1641a31ae50c9
+Size: 28490
+MD5Sum: 4526ea86c43ae7fc4537df9b06abe02d
+SHA256sum: df681fb5b1982621c633944bd65a4d1ee790dee4506c6a1af0c0bf67a1acf975
 Description:  NIXIO POSIX library
 
 Package: luci-mod-admin-full
