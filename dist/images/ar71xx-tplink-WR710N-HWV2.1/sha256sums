@@ -1,0 +1,15 @@
+SHA256(openwrt-ar71xx-generic-nbg460n_550n_550nh-u-boot.bin)= 728ec0aa3246cfed0f6ac40cbfddd28ab74ae6074baa8f9c1b82f320005e4dac
+SHA256(openwrt-ar71xx-generic-root.squashfs)= 50c36256417a7e1ed73e76f69820eb91f894340a42dc621279e9d24e47fab8c2
+SHA256(openwrt-ar71xx-generic-root.squashfs-64k)= 03240dcb461f9d986558f1f9fcb8281eb24c08c00c0dab1ad27e35a99ce1229d
+SHA256(openwrt-ar71xx-generic-tl-wr710n-v1-squashfs-factory.bin)= fc1b6a6571126ffbe05a52cfe123b8654a5dc11f80c0221bb09be655698bc07c
+SHA256(openwrt-ar71xx-generic-tl-wr710n-v1-squashfs-sysupgrade.bin)= e67f38f941be8385b9db602323e77c5adaa5a337a8891bfdfa04fc35e2351b1f
+SHA256(openwrt-ar71xx-generic-tl-wr710n-v2-squashfs-factory.bin)= d799b8642032619d52e445daafb4d4d225a3030ab78a3045203fa5312fc22765
+SHA256(openwrt-ar71xx-generic-tl-wr710n-v2-squashfs-sysupgrade.bin)= a63095cd25bcd84fdd2b6ecaffd411d09853d27c06774ea92b8ad7168e1bec46
+SHA256(openwrt-ar71xx-generic-uImage-gzip.bin)= 3743deb72575a19b3a623e244d95b91f0985f4d9f7ff315c9c9b45b7690e79d0
+SHA256(openwrt-ar71xx-generic-uImage-lzma.bin)= 1278f75dbb7128a4c8f8d8703565fa393e8b377eea6865090ac8c03ea0586768
+SHA256(openwrt-ar71xx-generic-vmlinux-lzma.elf)= 539ff2519a9feecec55df3e934793a317c77ab663c08677a17105c5762d86952
+SHA256(openwrt-ar71xx-generic-vmlinux.bin)= 970666c5ac05e8f787163569cd7c1319ff0354afc2505b6cc218f52fe874bbfc
+SHA256(openwrt-ar71xx-generic-vmlinux.elf)= 4e7281c668c96aab51903756959c5271d70dc85391f779468e561a86a82e8f48
+SHA256(openwrt-ar71xx-generic-vmlinux.gz)= 1e52eadd5ca4b4957d0b8f40396ae968cfa3154d98cc1ad5e4a524f0d98af5d0
+SHA256(openwrt-ar71xx-generic-vmlinux.lzma)= faa7f7d5f440023ba2cb4d94fb6fa6fbf8a122720140ec213dc8d7fd268df8b1
+SHA256(sha256sums)= e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
