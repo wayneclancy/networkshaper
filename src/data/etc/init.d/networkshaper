@@ -5,7 +5,7 @@ START=97
 USE_PROCD=1
 
 UHTTPD_BIN="/usr/sbin/uhttpd"
-INTERFACE="br-TestLan"
+INTERFACE="eth0"
 INTERFACE_OPSTATE="/sys/class/net/$INTERFACE/operstate"
 
 get_ip() {
