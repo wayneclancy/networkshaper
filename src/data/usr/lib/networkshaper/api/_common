@@ -4,6 +4,11 @@ render_ok() {
   echo "OK $REMOTE_CLIENT_ID"
 }
 
+render_custom_ok() {
+  echo "Content-Type: text/plain"
+  echo
+  echo "OK $REMOTE_CLIENT_ID"
+}
 
 stop_if_not_post() {
   if [ "$REQUEST_METHOD" != "POST" ]; then

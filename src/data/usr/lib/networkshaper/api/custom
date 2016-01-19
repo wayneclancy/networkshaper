@@ -1,0 +1,23 @@
+#!/bin/sh
+
+source $(dirname $0)/_common
+
+stop_if_not_get
+
+echo "Content-type: text/html"
+echo ""
+
+latency=`echo "$QUERY_STRING" | sed -n 's/^.*latency=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"
+packetloss=`echo "$QUERY_STRING" | sed -n 's/^.*packetloss=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"
+bandwidth=`echo "$QUERY_STRING" | sed -n 's/^.*bandwidth=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"
+echo "<html><head><title>Custom data</title></head>"
+echo "LATENCY=$latency<br>"
+echo "packetloss=$packetloss<br>"
+echo "bandwidth=$bandwidth<br>"
+echo "</body></html>"
+
+
+
+#/usr/lib/networkshaper/slow -b $bandwidths -l $latency -p $packetloss 2>&1 >/dev/null
+
+#render_ok
