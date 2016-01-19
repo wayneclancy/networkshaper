@@ -15,7 +15,7 @@ echo "<body>"
 echo "The following settings have been applied<br><br>"
 echo "Latency = $latency<br>"
 echo "Packet Loss = $packetloss<br>"
-echo "Bandwidth = =$bandwidth<br>"
+echo "Bandwidth = $bandwidth<br>"
 echo "</body></html>"                                                                  
  
                                                                                        
