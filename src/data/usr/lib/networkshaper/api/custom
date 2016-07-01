@@ -1,0 +1,23 @@
+#!/bin/sh
+
+source $(dirname $0)/_common
+
+#stop_if_not_get
+
+latency=`echo "$QUERY_STRING" | sed -n 's/^.*latency=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+packetloss=`echo "$QUERY_STRING" | sed -n 's/^.*packetloss=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+bandwidth=`echo "$QUERY_STRING" | sed -n 's/^.*bandwidth=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+
+echo "Content-type: text/html"
+echo ""
+echo "<html><head><title>Custom setttings</title></head>"                                                     
+echo "<body>"
+echo "The following settings have been applied<br><br>"
+echo "Latency = $latency<br>"
+echo "Packet Loss = ${packetloss}%<br>"
+echo "Bandwidth = $bandwidth<br>"
+echo "</body></html>"                                                                  
+ 
+                                                                                       
+/usr/lib/networkshaper/slow -b $bandwidth -l $latency -p ${packetloss}% 2>&1 >/dev/null
+
